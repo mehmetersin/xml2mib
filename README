@@ -1,3 +1,38 @@
 https://code.google.com/p/xml2mib
 
 
+Git Configuration :
+
+I use git both in my company and also in github and google. So my global git configuration file only holds my company profile. To configure a secondary git profile for google, I followed these steps:
+
+Here is how I got an error when I tried to push this README file with my comrany user name and email.
+
+$ git push origin master
+fatal: remote error: Invalid username/password.
+You may need to use your generated googlecode.com password; see https://code.google.com/hosting/settings
+
+
+1. I Overrode git user name and email in .git/config file
+2. I deleted my user name from remote origin host url
+
+$ cat xml2mib/.git/config
+...
+[remote "origin"]
+	url = https://code.google.com/p/xml2mib/
+...
+[user]
+	name = [your google name]
+	email = [your google mail]
+
+2. I checked my git user name & email. 
+
+$ git config user.name
+[your google user name goes here]
+$ git config user.email
+[your google mail goes here]
+
+3. I created ~/.netrc file in my home directory
+4. I Followed the steps in https://code.google.com/hosting/settings
+
+
+
